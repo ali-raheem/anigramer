@@ -7,7 +7,7 @@ GPLv2
 ## Running
 
 ```
-$ ./main /usr/share/dict/american-english
+$ ./anigramer /usr/share/dict/american-english
 ```
 
 On GNU/Linux systems often you will find a wordlist in /usr/share/dict.
@@ -15,7 +15,7 @@ On GNU/Linux systems often you will find a wordlist in /usr/share/dict.
 ## Compiling
 
 ```
-$ gcc -o main main.c anigramer.c -O3 -lreadline
+$ gcc -o anigramer main.c anigramer.c -O3 -lreadline
 ```
 
 ### Dependencies
