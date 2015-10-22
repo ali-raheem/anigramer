@@ -4,6 +4,20 @@ Simple program to try and find single word anagrams. Making use of binary heap t
 
 GPLv2
 
+## Project files
+ali@ali-K53E:~/Code/C/anigramer$ tree .
+.
+├── anigramer
+├── anigramer.c
+├── anigramer.h
+├── anigramer-upx
+├── LICENSE
+├── main.c
+├── Makefile
+└── README.md
+
+0 directories, 8 files
+
 ## Running
 
 ```
@@ -22,6 +36,10 @@ pots->Post->opts->post->pot's->pots->spot->stop->top's->tops.
 ```
 
 ## Compiling
+
+```
+$ make
+```
 
 ```
 $ gcc -o anigramer main.c anigramer.c -O3 -lreadline
