@@ -15,15 +15,17 @@ struct binary_tree_s {
 };
 typedef struct binary_tree_s bin_tree;
 
-char *hash(char *);
 word_list *word_list_new(char *);
 int word_list_add(word_list *, char *);
 void word_list_print(word_list *);
 
 bin_tree *bin_tree_new(char *, char *);
 int bin_tree_add(bin_tree *, char *);
-void print_bin_tree_node(bin_tree *);
-
+void bin_tree_print(bin_tree *);
 word_list *bin_tree_find(bin_tree *, char *);
+
 char *trim (char *);
+char *hash(char *);
+int compare_char(const void *, const void *);
+
 #endif
