@@ -5,6 +5,7 @@ Simple program to try and find single word anagrams. Making use of binary heap t
 GPLv2
 
 ## Project files
+```
 ali@ali-K53E:~/Code/C/anigramer$ tree .
 .
 ├── anigramer
@@ -17,6 +18,7 @@ ali@ali-K53E:~/Code/C/anigramer$ tree .
 └── README.md
 
 0 directories, 8 files
+```
 
 ## Running
 
