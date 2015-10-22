@@ -30,7 +30,12 @@ int main(int argc, char **argv){
 			break;
 		// assert(NULL != line);
 		printf("%s", line);
-		word_list_print(bin_tree_find(tree, line));
+		word_list *list = bin_tree_find(tree, line);
+		if(NULL != list) {
+			word_list_print(list);
+		}else{
+			puts(": No matches.");
+		}
 	}
 	exit(EXIT_SUCCESS);
 }
