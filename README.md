@@ -26,7 +26,7 @@ Uses readline and getline.
 # apt-get install libreadline6
 ```
 
-Or there abouts should get you required dependencies.
+Or there abouts should get you required dependencies on GNU/Debian systems.
 
 ### ToDo
 
