@@ -42,7 +42,7 @@ char *hash(char *word){
 			hword[i] += 'a';
 		}
 		// Broken keyboard mode. remove dups.
-		if(__flags & BROKEN_KEYBOARD_MODE){
+		if(get_flags() & BROKEN_KEYBOARD_MODE){
 			int t;
 			for(t = 0; t<i; t++){
 				if(hword[t] == hword[i]){
