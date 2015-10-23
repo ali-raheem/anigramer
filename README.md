@@ -63,7 +63,7 @@ $ gcc -o anigramer main.c anigramer.c -O3 -lreadline
 Uses readline and getline.
 
 ```
-# apt-get install libreadline6
+# apt-get install libreadline6-dev
 ```
 
 Or there abouts should get you required dependencies on GNU/Debian systems.
