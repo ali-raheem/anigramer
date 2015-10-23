@@ -22,7 +22,7 @@ int main(int argc, char **argv){
 	while( -1 != getline(&line, &n, fp)) {
 		bin_tree_add(tree, trim(line));
 	}
-	puts("Ctrl+C to quit.");
+	puts("Ctrl+D to quit.");
 	for(;;){
 		line = readline("Enter search word: ");
 		if(NULL == line)
