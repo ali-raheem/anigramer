@@ -1,10 +1,12 @@
-#include <stdlib.h>
-#include <assert.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <assert.h>
 
 #include "anigramer.h"
 
+// Uncomment line below to enable debug output i.e. verbose.
+// This is typically very annoying and very slow (stdout can block)
 // #define __DEBUG
 
 char *trim (char *in_string) {
@@ -16,6 +18,7 @@ char *trim (char *in_string) {
 	}
 	return string;
 }
+
 int compare_char (const void *a, const void *b) {
   const char *da = (const char *) a;
   const char *db = (const char *) b;
@@ -51,7 +54,7 @@ char *hash(char *word){
 
 word_list *word_list_new(char *word) {
 	#ifdef __DEBUG
-	puts("word_list_new");
+	printf("word_list_new(word: %s)\n", word);
 	#endif
 	word_list *list = (word_list *) malloc(sizeof(word_list));
 	assert(NULL != list);

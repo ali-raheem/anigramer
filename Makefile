@@ -9,6 +9,8 @@ LIBS = -lreadline
 
 anigramer: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+upx: anigramer
+	upx anigramer -o anigramer-upx
 
 clean:
 	rm $(OBJ)
