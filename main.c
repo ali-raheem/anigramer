@@ -27,12 +27,12 @@ int main(int argc, char **argv){
 		line = readline("Enter search word: ");
 		if(NULL == line)
 			break;
-		printf("%s ", line);
+		//		puts(line);
 		word_list *list = bin_tree_find(tree, line);
 		if(NULL != list)
 			word_list_print(list);
 		else
-			puts(": No matches.");
+			puts("No matches.");
 	}
 	exit(EXIT_SUCCESS);
 }

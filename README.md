@@ -1,4 +1,4 @@
-# anigramer v0.2.0
+# anigramer v1.0.0
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists, this program uses libreadline and GNU getline.
 
@@ -32,9 +32,9 @@ On GNU/Linux systems often you will find a wordlist in /usr/share/dict.
 
 ```
 ali@ali-K53E:~/Code/C/anigramer$ ./anigramer /usr/share/dict/american-english 
-Ctrl+C to quit.
-Enter search word: pots
-pots->Post->opts->post->pot's->pots->spot->stop->top's->tops.
+Ctrl+D to quit.
+Enter search word: anigramer
+margarine
 ```
 
 ## Compiling
