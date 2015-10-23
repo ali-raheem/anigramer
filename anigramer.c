@@ -88,11 +88,11 @@ void word_list_print(word_list *self) {
 		#ifdef __DEBUG
 		printf("word_list_print(self: %p, word: %s)\n", self, self->word);
 		#else
-		printf("->%s", self->word);
+		printf(", %s", self->word);
 		#endif
 		self = self->next;
 	}
-	puts(".");
+	puts("");
 }
 
 bin_tree *bin_tree_new(char *key, char *word) {

@@ -1,4 +1,4 @@
-# anigramer v0.1.1
+# anigramer v0.2.0
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists, this program uses libreadline and GNU getline.
 
@@ -18,8 +18,8 @@ ali@ali-K53E:~/Code/C/anigramer$ tree .
 └── README.md
 
 0 directories, 8 files
-```
 
+```
 ## Running
 
 ```
@@ -57,6 +57,15 @@ Uses readline and getline.
 
 Or there abouts should get you required dependencies on GNU/Debian systems.
 
+UPX is an optional dependencies should you want smaller binaries (typically 5-6kB v 11kB), upx may be installed from the repos on most distros.
+
+
+
+### Installing
+
+Copy binary files anigramer and anigramer-upx (if present) into a directory which is part of your $PATH. I used ~/.local/bin for system wide installation you may require root priviledges.
+
 ### ToDo
 
 Chase any memory leaks.
+Change name to margarine (anagram of anigramer)

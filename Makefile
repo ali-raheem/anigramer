@@ -3,15 +3,15 @@ CFLAGS = -O3 -g -s
 OBJ = main.o anigramer.o
 DEPS = anigramer.h
 LIBS = -lreadline
+BIN = anigramer
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-anigramer: $(OBJ)
+$(BIN): $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-upx: anigramer
-	rm anigramer-upx
-	upx anigramer -o anigramer-upx
-
+upx: $(BIN)
+	rm -f $(BIN)-upx
+	upx $(BIN) -o $(BIN)-upx
 clean:
-	rm $(OBJ)
+	rm -f $(OBJ) $(BIN) $(BIN)-upx
