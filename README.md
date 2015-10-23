@@ -1,4 +1,4 @@
-# anigramer v1.0.0
+# anigramer v1.0.1
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists, this program uses libreadline and GNU getline.
 
@@ -27,6 +27,17 @@ $ ./anigramer /usr/share/dict/american-english
 ```
 
 On GNU/Linux systems often you will find a wordlist in /usr/share/dict.
+
+You may pass options to alter it's operation, currently all that is supported is -b which will make the program ignore how many copies of each letter you pass it "broken keyboard mode". Thus elope and people will also match.
+
+```
+ali@ali-K53E:~/Code/C/anigramer$ ./anigramer 
+Usage:
+	./anigramer word-file [OPTIONS]
+
+Options:
+	-b	Broken keyboard mode.
+```
 
 ### Sample output
 
@@ -68,4 +79,3 @@ Copy binary files anigramer and anigramer-upx (if present) into a directory whic
 ### ToDo
 
 Chase any memory leaks.
-Change name to margarine (anagram of anigramer)

@@ -1,6 +1,13 @@
 #ifndef __ANIGRAMMER_H
 #define _ANIGRAMMER_H
 
+enum {
+	BROKEN_KEYBOARD_MODE = 1 << 0,
+};
+int __flags;
+void set_flags(int);
+int get_flags(void);
+
 struct linked_list_s {
 	char *word;
 	struct linked_list_s *next;

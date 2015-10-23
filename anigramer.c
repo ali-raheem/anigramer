@@ -9,6 +9,12 @@
 // This is typically very annoying and very slow (stdout can block)
 // #define __DEBUG
 
+void set_flags(int modes) {
+	__flags = modes;
+}
+int get_flags(void) {
+	return __flags;
+}
 char *trim (char *in_string) {
 	char *string = strdup(in_string);
 	int i;
@@ -34,6 +40,16 @@ char *hash(char *word){
 		if(hword[i] >= 'A' && hword[i] <= 'Z') {
 			hword[i] -= 'A';
 			hword[i] += 'a';
+		}
+		// Broken keyboard mode. remove dups.
+		if(__flags & BROKEN_KEYBOARD_MODE){
+			int t;
+			for(t = 0; t<i; t++){
+				if(hword[t] == hword[i]){
+			    	hword[i] = '~';
+					break;
+				}
+			}
 		}
 		if(hword[i] < 'a' || hword[i] > 'z') {
 			hword[i] = '~';

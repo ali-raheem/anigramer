@@ -6,8 +6,8 @@
 #include "anigramer.h"
 
 int main(int argc, char **argv){
-	if(2 > argc){
-		printf("Usage:\n\t%s word-file\n", argv[0]);
+	if(2 > argc || 3 < argc){
+		printf("Usage:\n\t%s word-file [OPTIONS]\n\nOptions:\n\t-b\tBroken keyboard mode.\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 	FILE *fp = NULL;
@@ -17,6 +17,12 @@ int main(int argc, char **argv){
 	  exit(EXIT_FAILURE);
 	}
 	char *line;
+
+	int flags = 0;
+	if(3 == argc)
+		if(0 == strcmp(argv[2], "-b"))
+			flags |= BROKEN_KEYBOARD_MODE;
+	set_flags(flags);
 	size_t n = 0;
 	bin_tree *tree = bin_tree_new(hash(""), "");
 	while( -1 != getline(&line, &n, fp)) {
