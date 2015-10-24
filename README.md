@@ -1,10 +1,13 @@
-# anigramer v1.0.1
+# anigramer v1.0.2
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists, this program uses libreadline and GNU getline.
 
 GPLv2
 
 ## Project files
+
+Listing of files in this project with description.
+
 ```
 .
 ├── anigramer.c			Main anigramer code
@@ -21,8 +24,8 @@ GPLv2
 └── README.md			This Readme
 
 3 directories, 9 files
-
 ```
+
 ## Running
 
 ```
