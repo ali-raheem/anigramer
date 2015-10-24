@@ -6,18 +6,21 @@ GPLv2
 
 ## Project files
 ```
-ali@ali-K53E:~/Code/C/anigramer$ tree .
 .
-├── anigramer
-├── anigramer.c
-├── anigramer.h
-├── anigramer-upx
-├── LICENSE
-├── main.c
-├── Makefile
-└── README.md
+├── anigramer.c			Main anigramer code
+├── anigramer.h			Header for anigramer
+├── LICENSE			GPLv2 copy
+├── main.c			Main interface
+├── Makefile			Simple makefile
+├── pre-built			Some prebuilt binaries
+│   ├── linux-x86_64		64 Linux shared binaries
+│   │   ├── anigramer		64bit linux
+│   │   └── anigramer-upx	64bit linux packed
+│   └── raspberrypi
+│       └── anigramer		Binary for arm
+└── README.md			This Readme
 
-0 directories, 8 files
+3 directories, 9 files
 
 ```
 ## Running
