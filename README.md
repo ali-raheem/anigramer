@@ -1,4 +1,4 @@
-# anigramer v1.0.2
+# anigramer v1.1.0
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists, this program uses libreadline and GNU getline.
 
@@ -75,7 +75,6 @@ Uses readline and getline.
 Or there abouts should get you required dependencies on GNU/Debian systems.
 
 UPX is an optional dependencies should you want smaller binaries (typically 5-6kB v 11kB), upx may be installed from the repos on most distros.
-
 
 
 ### Installing
