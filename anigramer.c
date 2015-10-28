@@ -15,28 +15,28 @@ void set_flags(int modes) {
 int get_flags(void) {
 	return __flags;
 }
-char *trim (char *in_string) {
+char *trim (const char *in_string) {
 	char *string = strdup(in_string);
 	int i;
-	for (i = 0; i <strlen(string); i++) {
+	for (i = strlen(string) - 1; i >= 0; --i) {
 		if('\n' == string[i] || '\r' == string[i])
 			string[i] = 0;
 	}
 	return string;
 }
 
-int compare_char (const void *a, const void *b) {
+static int compare_char (const void *a, const void *b) {
   const char *da = (const char *) a;
   const char *db = (const char *) b;
 
   return (*da > *db) - (*da < *db);
 }
 
-char *hash(char *word){
+char *hash(const char *word){
 	char *hword = strdup(word);
 	int i;
 	int j = 0;
-	for(i = 0; i < strlen(hword); i++){
+	for(i = strlen(hword) - 1; i >=0; --i){
 		if(hword[i] >= 'A' && hword[i] <= 'Z') {
 			hword[i] -= 'A';
 			hword[i] += 'a';
@@ -68,7 +68,7 @@ char *hash(char *word){
 	return hashed;
 }
 
-word_list *word_list_new(char *word) {
+static word_list *word_list_new(const char *word) {
 	#ifdef __DEBUG
 	printf("word_list_new(word: %s)\n", word);
 	#endif
@@ -79,7 +79,7 @@ word_list *word_list_new(char *word) {
 	return list;
 }
 
-int word_list_add(word_list *self, char *word) {
+static int word_list_add(word_list *self, char *word) {
 	#ifdef __DEBUG
 	printf("word_list_add(self: %p, word: %s)\n", self, word);
 	#endif
@@ -99,7 +99,7 @@ int word_list_add(word_list *self, char *word) {
 	return 1;
 }
 
-void word_list_print(word_list *self) {
+void word_list_print(const word_list *self) {
 	while(NULL != self){
 		#ifdef __DEBUG
 		printf("word_list_print(self: %p, word: %s)\n", self, self->word);
@@ -111,7 +111,7 @@ void word_list_print(word_list *self) {
 	//	puts("");
 }
 
-bin_tree *bin_tree_new(char *key, char *word) {
+bin_tree *bin_tree_new(const char *key, const char *word) {
 	#ifdef __DEBUG
 	printf("bin_tree_new(word: %s)\n", word);
 	#endif
@@ -155,7 +155,7 @@ int bin_tree_add(bin_tree *self, char *word) {
 	}
 }
 
-word_list *bin_tree_find(bin_tree *self, char *word) {
+word_list *bin_tree_find(const bin_tree *self, const char *word) {
 	#ifdef __DEBUG
 	printf("bin_tree_find(self: %p, word: %s)\n", self, word);
 	#endif
@@ -183,7 +183,7 @@ word_list *bin_tree_find(bin_tree *self, char *word) {
 	}
 }
 
-void bin_tree_print(bin_tree *self) {
+void bin_tree_print(const bin_tree *self) {
 	printf("bin_tree_node(self: %p, key: %s, left: %p, right: %p, next: %p)\n", \
 	self, self->key, self->left, self->right, self->next);
 }

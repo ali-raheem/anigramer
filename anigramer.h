@@ -9,30 +9,31 @@ void set_flags(int);
 int get_flags(void);
 
 struct linked_list_s {
-	char *word;
+	const char *word;
 	struct linked_list_s *next;
 };
 typedef struct linked_list_s word_list;
 
 struct binary_tree_s {
-	char *key;
+	const char *key;
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 	word_list *next;
 };
 typedef struct binary_tree_s bin_tree;
 
-word_list *word_list_new(char *);
-int word_list_add(word_list *, char *);
-void word_list_print(word_list *);
+char *trim (const char *);
+char *hash(const char *);
+static int compare_char(const void *, const void *);
 
-bin_tree *bin_tree_new(char *, char *);
+static word_list *word_list_new(const char *);
+static int word_list_add(word_list *, char *);
+void word_list_print(const word_list *);
+
+bin_tree *bin_tree_new(const char *, const char *);
 int bin_tree_add(bin_tree *, char *);
-void bin_tree_print(bin_tree *);
-word_list *bin_tree_find(bin_tree *, char *);
+void bin_tree_print(const bin_tree *);
+word_list *bin_tree_find(const bin_tree *, const char *);
 
-char *trim (char *);
-char *hash(char *);
-int compare_char(const void *, const void *);
 
 #endif
