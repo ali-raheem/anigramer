@@ -1,4 +1,4 @@
-# anigramer v1.1.1
+# anigramer v1.2.0
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists.
 
@@ -68,6 +68,7 @@ $ gcc -o anigramer main.c anigramer.c -O3
 
 ### Dependencies
 
+Uses GNU getline to reduce malloc calls.
 UPX is an optional dependencies should you want smaller binaries (typically 5-6kB v 11kB), upx may be installed from the repos on most distros.
 
 

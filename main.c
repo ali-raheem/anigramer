@@ -5,6 +5,8 @@
 
 #include "anigramer.h"
 
+#define INITIAL_LINE_SIZE 128
+
 int main(int argc, char **argv){
 	if(2 > argc || 3 < argc){
 		printf("Usage:\n\t%s word-file [OPTIONS]\n\nOptions:\n\t-b\tBroken keyboard mode.\n", argv[0]);
@@ -16,18 +18,17 @@ int main(int argc, char **argv){
 	  printf("Failed to open file: \"%s\", is it really a wordlist?\n", argv[1]);
 	  exit(EXIT_FAILURE);
 	}
-	char *line = NULL;
-
 	int flags = 0;
 	if(3 == argc)
 		if(0 == strcmp(argv[2], "-b"))
 			flags |= BROKEN_KEYBOARD_MODE;
 	set_flags(flags);
-	size_t n = 0;
 	bin_tree *tree = bin_tree_new(hash(""), "");
-	while( EOF != fscanf(fp, "%ms", &line)) {
+	size_t n = INITIAL_LINE_SIZE;
+	char *line = (char *) malloc(n);
+
+	while( EOF != getline(&line, &n, fp)) {
 		bin_tree_add(tree, trim(line));
-		free(line);
 	}
 	fclose(fp);
 	fp = NULL;
