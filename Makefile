@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -O3 -g -s
 OBJ = main.o anigramer.o
 DEPS = anigramer.h
-LIBS = -lreadline
+#LIBS = -lreadline
 BIN = anigramer
 
 %.o: %.c $(DEPS)

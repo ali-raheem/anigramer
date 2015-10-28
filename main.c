@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <readline/readline.h>
+//#include <readline/readline.h>
 
 #include "anigramer.h"
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv){
 	  printf("Failed to open file: \"%s\", is it really a wordlist?\n", argv[1]);
 	  exit(EXIT_FAILURE);
 	}
-	char *line;
+	char *line = NULL;
 
 	int flags = 0;
 	if(3 == argc)
@@ -25,12 +25,17 @@ int main(int argc, char **argv){
 	set_flags(flags);
 	size_t n = 0;
 	bin_tree *tree = bin_tree_new(hash(""), "");
-	while( -1 != getline(&line, &n, fp)) {
+	while( EOF != fscanf(fp, "%ms", &line)) {
 		bin_tree_add(tree, trim(line));
+		free(line);
 	}
+	fclose(fp);
+	fp = NULL;
 	puts("Ctrl+D to quit.");
 	for(;;){
-		line = readline("Enter search word: ");
+		printf("Enter search word: ");
+		free(line);
+		scanf("%ms", &line);
 		if(NULL == line)
 			break;
 		//		puts(line);
