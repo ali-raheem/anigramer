@@ -23,14 +23,14 @@ struct binary_tree_s {
 typedef struct binary_tree_s bin_tree;
 
 char *trim (const char *);
-char *hash(const char *);
+static char *hash(const char *);
 static int compare_char(const void *, const void *);
 
 static word_list *word_list_new(const char *);
 static int word_list_add(word_list *, char *);
 void word_list_print(const word_list *);
 
-bin_tree *bin_tree_new(const char *, const char *);
+bin_tree *bin_tree_new(const char *);
 int bin_tree_add(bin_tree *, char *);
 void bin_tree_print(const bin_tree *);
 word_list *bin_tree_find(const bin_tree *, const char *);

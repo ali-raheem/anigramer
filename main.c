@@ -23,10 +23,9 @@ int main(int argc, char **argv){
 		if(0 == strcmp(argv[2], "-b"))
 			flags |= BROKEN_KEYBOARD_MODE;
 	set_flags(flags);
-	bin_tree *tree = bin_tree_new(hash(""), "");
+	bin_tree *tree = bin_tree_new("");
 	size_t n = INITIAL_LINE_SIZE;
 	char *line = (char *) malloc(n);
-
 	while( EOF != getline(&line, &n, fp)) {
 		bin_tree_add(tree, trim(line));
 	}

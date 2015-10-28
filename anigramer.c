@@ -32,7 +32,7 @@ static int compare_char (const void *a, const void *b) {
   return (*da > *db) - (*da < *db);
 }
 
-char *hash(const char *word){
+static char *hash(const char *word){
 	char *hword = strdup(word);
 	int i;
 	int j = 0;
@@ -111,10 +111,11 @@ void word_list_print(const word_list *self) {
 	//	puts("");
 }
 
-bin_tree *bin_tree_new(const char *key, const char *word) {
+bin_tree *bin_tree_new(const char *word) {
 	#ifdef __DEBUG
 	printf("bin_tree_new(word: %s)\n", word);
 	#endif
+	char *key = hash(word);
 	bin_tree *tree = (bin_tree *) malloc(sizeof(bin_tree));
 	assert(NULL != tree);
 	tree->key = key;
@@ -133,8 +134,9 @@ int bin_tree_add(bin_tree *self, char *word) {
 		int rv = strcmp(hword, self->key);
 		if (rv < 0){
 			if(NULL == self->left){
-				bin_tree *node = bin_tree_new(hword, word);
+				bin_tree *node = bin_tree_new(word);
 				self->left = node;
+				free(hword);
 				return 1;
 			}
 			self = self->left;
@@ -142,8 +144,9 @@ int bin_tree_add(bin_tree *self, char *word) {
 		}
 		if (rv > 0){
 			if(NULL == self->right){
-				bin_tree *node = bin_tree_new(hword, word);
+				bin_tree *node = bin_tree_new(word);
 				self->right = node;
+				free(hword);
 				return 1;
 			}
 			self = self->right;
