@@ -35,7 +35,7 @@ int main(int argc, char **argv){
     for(;;){
         printf("Enter search word: ");
         free(line);
-        line = strdup("bumnight");
+	//        line = strdup("bumnight");
         scanf("%ms", &line);
         if(NULL == line)
             break;

@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -O3 -g -s
+#-std=c99
 OBJ = main.o anigramer.o
 DEPS = anigramer.h
 #LIBS = -lreadline

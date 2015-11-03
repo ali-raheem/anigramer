@@ -1,4 +1,4 @@
-# anigramer v2.0.1
+# anigramer v2.0.2
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists.
 
