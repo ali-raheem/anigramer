@@ -22,6 +22,19 @@ struct binary_tree_s {
 };
 typedef struct binary_tree_s bin_tree;
 
+#ifdef __EXPERIMENTAL
+struct bin_tree_head_s {
+  size_t cap;
+  size_t num;
+  bin_tree *head;
+};
+typedef struct bin_tree_head_s bin_tree_head;
+
+static bin_tree_head table;
+void bin_tree_mmap(size_t);
+static bin_tree *bin_tree_malloc(void);
+#endif
+
 char *trim (const char *);
 static char *hash(const char *);
 static int compare_char(const void *, const void *);

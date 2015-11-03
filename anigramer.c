@@ -111,13 +111,36 @@ void word_list_print(const word_list *self) {
     //    puts("");
 }
 
+#ifdef __EXPERIMENTAL
+void bin_tree_mmap(size_t n){
+  table.cap = n;
+  table.num = 0;
+  table.head = (bin_tree *)malloc(sizeof(bin_tree)*n+1);
+  assert(NULL != table.head);
+}
+
+static bin_tree *bin_tree_malloc(void) {
+  if(table.cap > table.num + 1) {
+    ++table.num;
+    return (bin_tree *)table.head+(sizeof(bin_tree) * table.num);
+  }else{
+    bin_tree *new = (bin_tree *)malloc(sizeof(bin_tree));
+    assert(NULL != new);
+    return new;
+  }
+}
+#endif
+
 bin_tree *bin_tree_new(const char *word) {
     #ifdef __DEBUG
     printf("bin_tree_new(word: %s)\n", word);
     #endif
     char *key = hash(word);
+    #ifdef __EXPERIMENTAL
+    bin_tree *tree = bin_tree_malloc();
+    #else
     bin_tree *tree = (bin_tree *) malloc(sizeof(bin_tree));
-
+    #endif
     assert(NULL != tree);
     tree->key = key;
     tree->left = NULL;
@@ -125,39 +148,6 @@ bin_tree *bin_tree_new(const char *word) {
     tree->next = word_list_new(word);
     return tree;
 }
-
-/* struct bin_tree_head_s { */
-/*   size_t cap; */
-/*   size_t num; */
-/*   bin_tree *head; */
-/* }; */
-/* typedef struct bin_tree_head_s bin_tree_head; */
-  
-/* bin_tree *xbin_tree_new(const char *word) { */
-/*     #ifdef __DEBUG */
-/*     printf("bin_tree_new(word: %s)\n", word); */
-/*     #endif */
-/*     char *key = hash(word); */
-/*     bin_tree *tree; */
-/*     static bin_tree_head bin_tree_data; */
-/*     if (0 == bin_tree_data.cap) { */
-/*       bin_tree_data.cap = 999999; */
-/*       bin_tree_data.num = 0; */
-/*       bin_tree_data.head = (bin_tree *) malloc(sizeof(bin_tree)*bin_tree_data.cap); */
-/*       assert(NULL != bin_tree_data.head); */
-/*     } */
-/*     if (bin_tree_data.cap > bin_tree_data.num) { */
-/*       tree = bin_tree_data.head + (bin_tree_data.num++ * sizeof(bin_tree)); */
-/*     } else { */
-/*       tree = (bin_tree *) malloc(sizeof(bin_tree)); */
-/*     } */
-/*     assert(NULL != tree); */
-/*     tree->key = key; */
-/*     tree->left = NULL; */
-/*     tree->right = NULL; */
-/*     tree->next = word_list_new(word); */
-/*     return tree; */
-/* } */
 
 int bin_tree_add(bin_tree *self, char *word) {
     #ifdef __DEBUG
