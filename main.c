@@ -36,16 +36,14 @@ int main(int argc, char **argv){
         printf("Enter search word: ");
         free(line);
         line = strdup("bumnight");
-              /* scanf("%ms", &line); */
+        scanf("%ms", &line);
         if(NULL == line)
             break;
-        //        puts(line);
         word_list *list = bin_tree_find(tree, line);
         if(NULL != list)
             word_list_print(list);
         else
             puts("No matches.");
-        break;
     }
     exit(EXIT_SUCCESS);
 }
