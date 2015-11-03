@@ -78,4 +78,5 @@ Copy binary files anigramer and anigramer-upx (if present) into a directory whic
 
 ### ToDo
 
-Chase any memory leaks.
+* Reduce cache misses, rather than multiple mallocs try to minimise non-continuous memory.
+* Chase any memory leaks.
