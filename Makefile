@@ -16,3 +16,5 @@ upx: $(BIN)
 	upx $(BIN) -o $(BIN)-upx
 clean:
 	rm -f $(OBJ) $(BIN) $(BIN)-upx
+test:
+	yes
