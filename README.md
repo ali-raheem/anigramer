@@ -1,4 +1,4 @@
-# anigramer v2.0.2
+# anigramer v2.0.2 [![Build Status](https://travis-ci.org/wolfmankurd/anigramer.svg?branch=master)](https://travis-ci.org/wolfmankurd/anigramer)
 
 Simple program to try and find single word anagrams. Making use of binary heap trees and linked lists.
 
